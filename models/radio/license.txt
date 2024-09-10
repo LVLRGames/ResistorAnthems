@@ -1,0 +1,11 @@
+Model Information:
+* title:	Minecraft - radio comunicator
+* source:	https://sketchfab.com/3d-models/minecraft-radio-comunicator-facb1a0cfd1c4d7d8f0627536048f2b2
+* author:	Alejandro_LG (https://sketchfab.com/Alejandro_LG)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Minecraft - radio comunicator" (https://sketchfab.com/3d-models/minecraft-radio-comunicator-facb1a0cfd1c4d7d8f0627536048f2b2) by Alejandro_LG (https://sketchfab.com/Alejandro_LG) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

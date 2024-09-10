@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgtwvvjnaefev"]
+
+[ext_resource type="PackedScene" uid="uid://bvgbvk4fd6ofa" path="res://models/room.glb" id="1_tf45f"]
+
+[sub_resource type="Environment" id="Environment_xbrwo"]
+background_mode = 1
+background_color = Color(0.11953, 5.06396e-05, 0.157753, 1)
+ssao_enabled = true
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xbrwo")
+
+[node name="room" parent="." instance=ExtResource("1_tf45f")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+omni_range = 8.0
+omni_attenuation = 0.8

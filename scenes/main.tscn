@@ -1,5 +1,45 @@
-[gd_scene format=3 uid="uid://cvxylaon4ox1t"]
+[gd_scene load_steps=9 format=3 uid="uid://cvxylaon4ox1t"]
 
-[node name="Main" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://bvgbvk4fd6ofa" path="res://models/room.glb" id="1_5c5gb"]
+[ext_resource type="Script" path="res://scripts/menu_camera.gd" id="2_iosdf"]
+[ext_resource type="PackedScene" uid="uid://c2nd7erctf2uj" path="res://models/arm_chair.gltf" id="3_i0007"]
+[ext_resource type="PackedScene" uid="uid://dsoixwhb78gff" path="res://models/office_desk.gltf" id="4_5stwq"]
+[ext_resource type="PackedScene" uid="uid://dxdkcmq3wen5o" path="res://models/radio_equipment.gltf" id="5_28yso"]
+[ext_resource type="PackedScene" uid="uid://4sv7600w5j4k" path="res://models/radio/scene.gltf" id="6_2w062"]
+[ext_resource type="PackedScene" uid="uid://uokxcw7mhhia" path="res://models/night_stand.gltf" id="7_6x8rj"]
 
-[node name="GridMap" type="GridMap" parent="."]
+[sub_resource type="Environment" id="Environment_xbrwo"]
+background_mode = 1
+background_color = Color(0.11953, 5.06396e-05, 0.157753, 1)
+ssao_enabled = true
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xbrwo")
+
+[node name="room" parent="." instance=ExtResource("1_5c5gb")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("2_iosdf")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+omni_range = 8.0
+omni_attenuation = 0.33
+
+[node name="blockbench_export" parent="." instance=ExtResource("3_i0007")]
+transform = Transform3D(0.59845, 0, 0.80116, 0, 1, 0, -0.80116, 0, 0.59845, 4.80483, 0, 2.87651)
+
+[node name="blockbench_export2" parent="." instance=ExtResource("4_5stwq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.4, 0, 0.6)
+
+[node name="blockbench_export3" parent="." instance=ExtResource("5_28yso")]
+transform = Transform3D(0.323851, 0, 0.946108, 0, 1, 0, -0.946108, 0, 0.323851, -5.52306, 1.09324, -0.337541)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("6_2w062")]
+transform = Transform3D(0.978235, 0, 0.207502, 0, 1, 0, -0.207502, 0, 0.978235, -5.59078, 1.1319, 1.60376)
+
+[node name="blockbench_export4" parent="." instance=ExtResource("7_6x8rj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.2, 0, -3.4)

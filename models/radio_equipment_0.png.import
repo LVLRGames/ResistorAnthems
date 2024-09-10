@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cxan3iqftmp2k"
+path.s3tc="res://.godot/imported/radio_equipment_0.png-2b21e90e42b49a25af3f91e2fa10e222.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "2f7f7a58f25266b487753eb259d603f6"
+}
+
+[deps]
+
+source_file="res://models/radio_equipment_0.png"
+dest_files=["res://.godot/imported/radio_equipment_0.png-2b21e90e42b49a25af3f91e2fa10e222.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
