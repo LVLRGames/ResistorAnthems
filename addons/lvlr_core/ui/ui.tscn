@@ -1,0 +1,460 @@
+[gd_scene load_steps=18 format=3 uid="uid://cstyd0varise7"]
+
+[ext_resource type="Script" path="res://addons/lvlr_core/ui/ui.gd" id="1_uiugd"]
+[ext_resource type="Texture2D" uid="uid://p61klxdwnd1r" path="res://addons/lvlr_core/textures/cards.svg" id="2_vw07a"]
+[ext_resource type="Texture2D" uid="uid://drf3ix73r7nyq" path="res://addons/lvlr_core/textures/details.svg" id="3_g2gfb"]
+[ext_resource type="LabelSettings" uid="uid://c5remc53gqck6" path="res://addons/lvlr_core/ui/theme/card_title_label_settings.tres" id="4_3demu"]
+[ext_resource type="Texture2D" uid="uid://c3gn1u3o35s8d" path="res://icon.svg" id="4_svifo"]
+[ext_resource type="LabelSettings" uid="uid://b5yr72qxwch3x" path="res://addons/lvlr_core/ui/theme/card_subtitle_label_settings.tres" id="5_kjr5u"]
+[ext_resource type="LabelSettings" uid="uid://bakpmnksra5dg" path="res://addons/lvlr_core/ui/theme/subtitle_label_settings.tres" id="7_entu7"]
+[ext_resource type="LabelSettings" uid="uid://c36olnvwq31yx" path="res://addons/lvlr_core/ui/theme/title_label_settings.tres" id="7_ojk2q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhx2k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+corner_radius_top_left = 28
+corner_radius_top_right = 14
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.25098)
+shadow_size = 6
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifv28"]
+content_margin_left = 0.0
+bg_color = Color(0.498039, 0.396078, 0.396078, 1)
+draw_center = false
+corner_radius_top_left = 24
+corner_radius_top_right = 12
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71ccl"]
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pn4je"]
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oft50"]
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohcav"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q886r"]
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.237539, 0.237539, 0.237539, 1)
+corner_radius_top_right = 12
+corner_radius_bottom_right = 4
+expand_margin_left = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq8i7"]
+content_margin_left = 7.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.237539, 0.237539, 0.237539, 1)
+corner_radius_top_left = 4
+corner_radius_bottom_left = 12
+expand_margin_right = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kuf47"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="UI" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_uiugd")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 2
+split_offset = 4
+
+[node name="CardViewer" type="VBoxContainer" parent="VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/CardViewer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/CardViewer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VSplitContainer/CardViewer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Card Title"
+
+[node name="ViewMode" type="TextureButton" parent="VSplitContainer/CardViewer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_vw07a")
+texture_pressed = ExtResource("3_g2gfb")
+texture_hover = ExtResource("2_vw07a")
+
+[node name="Control" type="Control" parent="VSplitContainer/CardViewer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CardPreview" type="MarginContainer" parent="VSplitContainer/CardViewer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview"]
+layout_mode = 2
+
+[node name="PanelContainer" type="AspectRatioContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer"]
+layout_mode = 2
+ratio = 0.6
+
+[node name="CardDisplay" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer"]
+layout_mode = 2
+localize_numeral_system = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_xhx2k")
+
+[node name="CardFace" type="Control" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay"]
+layout_mode = 2
+
+[node name="CardContents" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ifv28")
+
+[node name="VBox" type="VBoxContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardContents"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IdentitySpacer" type="Control" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardContents/VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Content" type="Control" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardContents/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardContents/VBox/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_71ccl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardContents/VBox/Content/PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardContents/VBox/Content/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pn4je")
+
+[node name="PanelContainer2" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardContents/VBox/Content/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oft50")
+
+[node name="ActionSpacer" type="Control" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardContents/VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="CardOverlay" type="VBoxContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Identity" type="MarginContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay"]
+layout_mode = 2
+
+[node name="CardIdentity" type="HBoxContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Identity"]
+layout_mode = 2
+
+[node name="SuitIconArea" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Identity/CardIdentity"]
+z_index = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohcav")
+
+[node name="SuitIcon" type="TextureRect" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Identity/CardIdentity/SuitIconArea"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_svifo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Identity/CardIdentity"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q886r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Identity/CardIdentity/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -2
+alignment = 2
+
+[node name="Title" type="Label" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Identity/CardIdentity/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 7
+text = "Title"
+label_settings = ExtResource("4_3demu")
+horizontal_alignment = 2
+
+[node name="Subtitle" type="Label" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Identity/CardIdentity/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 7
+text = "Subtitle"
+label_settings = ExtResource("5_kjr5u")
+horizontal_alignment = 2
+
+[node name="ContentSpacer" type="Control" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Action" type="MarginContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay"]
+layout_mode = 2
+
+[node name="CardAction" type="HBoxContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action/CardAction"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_kq8i7")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action/CardAction/PanelContainer"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="TextureButton" type="TextureButton" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action/CardAction/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action/CardAction/PanelContainer/VBoxContainer/TextureButton"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kuf47")
+
+[node name="TextureButton2" type="TextureButton" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action/CardAction/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action/CardAction/PanelContainer/VBoxContainer/TextureButton2"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kuf47")
+
+[node name="TextureButton3" type="TextureButton" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action/CardAction/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action/CardAction/PanelContainer/VBoxContainer/TextureButton3"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kuf47")
+
+[node name="SuitIconArea" type="PanelContainer" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action/CardAction"]
+z_index = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohcav")
+
+[node name="SuitIcon" type="TextureRect" parent="VSplitContainer/CardViewer/Control/CardPreview/PanelContainer/PanelContainer/CardDisplay/CardFace/CardOverlay/Action/CardAction/SuitIconArea"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_svifo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CardInfo" type="MarginContainer" parent="VSplitContainer/CardViewer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VSplitContainer/CardViewer/Control/CardInfo"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/CardViewer/Control/CardInfo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/CardViewer/Control/CardInfo/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SuitIcon" type="TextureRect" parent="VSplitContainer/CardViewer/Control/CardInfo/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("4_svifo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/CardViewer/Control/CardInfo/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Title" type="Label" parent="VSplitContainer/CardViewer/Control/CardInfo/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Title"
+label_settings = ExtResource("7_ojk2q")
+
+[node name="Subtitle" type="Label" parent="VSplitContainer/CardViewer/Control/CardInfo/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "subtitle
+"
+label_settings = ExtResource("7_entu7")
+
+[node name="TextureRect" type="TextureRect" parent="VSplitContainer/CardViewer/Control/CardInfo/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_svifo")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VSplitContainer/CardViewer/Control/CardInfo/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Description"
+
+[node name="CardExplorer" type="VBoxContainer" parent="VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VSplitContainer/CardExplorer"]
+layout_mode = 2
+text = "Cards"
+
+[node name="CardTree" type="PanelContainer" parent="VSplitContainer/CardExplorer"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VSplitContainer/CardExplorer/CardTree"]
+layout_mode = 2
+
+[node name="Tree" type="Tree" parent="VSplitContainer/CardExplorer/CardTree/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CreateButton" type="Button" parent="VSplitContainer/CardExplorer"]
+layout_mode = 2
+text = "Create Card"
