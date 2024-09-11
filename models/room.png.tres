@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b6omxuhvx4vca"]
+
+[ext_resource type="Texture2D" uid="uid://jxjd5vhd7vyw" path="res://textures/room.png" id="1_i3qxb"]
+
+[resource]
+resource_name = "room.png"
+albedo_texture = ExtResource("1_i3qxb")
+ao_enabled = true
+subsurf_scatter_strength = 0.1
+texture_filter = 2
+texture_repeat = false
