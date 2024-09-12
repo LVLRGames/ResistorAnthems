@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ch4hkv2pfm66e"
+path="res://.godot/imported/09 Come and Find Me - B mix.mp3-4427773849fe53f1ed1a600d46079bc5.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/09 Come and Find Me - B mix.mp3"
+dest_files=["res://.godot/imported/09 Come and Find Me - B mix.mp3-4427773849fe53f1ed1a600d46079bc5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

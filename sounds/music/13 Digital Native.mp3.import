@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ynhm4lj1i4p7"
+path="res://.godot/imported/13 Digital Native.mp3-274f42c1cfc4da568f5db7eb53013602.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/13 Digital Native.mp3"
+dest_files=["res://.godot/imported/13 Digital Native.mp3-274f42c1cfc4da568f5db7eb53013602.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

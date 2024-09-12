@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbonb7r53tmbm"
+path="res://.godot/imported/01 A Night Of Dizzy Spells.mp3-bff11894185fbd3c29e897d37713c53a.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/01 A Night Of Dizzy Spells.mp3"
+dest_files=["res://.godot/imported/01 A Night Of Dizzy Spells.mp3-bff11894185fbd3c29e897d37713c53a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

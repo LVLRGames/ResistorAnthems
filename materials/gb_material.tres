@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bo7n5t1fqylpu"]
+
+[ext_resource type="Texture2D" uid="uid://d7qcpn7o2u2t" path="res://models/gameboy2/source/model_0.png" id="1_6gppn"]
+[ext_resource type="Texture2D" uid="uid://2jv1fcsgav1t" path="res://models/gameboy2/source/model_0_emission.png" id="2_mw3ob"]
+
+[resource]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+diffuse_mode = 1
+specular_mode = 1
+albedo_texture = ExtResource("1_6gppn")
+emission_texture = ExtResource("2_mw3ob")
+texture_filter = 0
+texture_repeat = false

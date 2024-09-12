@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/room.png-9f3376708c86461ce4c32d5a54c1d200.cte
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

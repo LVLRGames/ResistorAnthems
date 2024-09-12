@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2oihm3l5uek0"
+path="res://.godot/imported/08 Ascending.mp3-8128ffebb5c7d61f45d1677552cd6dc6.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/08 Ascending.mp3"
+dest_files=["res://.godot/imported/08 Ascending.mp3-8128ffebb5c7d61f45d1677552cd6dc6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
