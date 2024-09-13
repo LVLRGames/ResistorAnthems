@@ -11,3 +11,4 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseMotion:
 		rotate_x(-event.relative.y * sensitivity)
+		event.relative.y = 0

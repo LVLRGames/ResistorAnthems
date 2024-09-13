@@ -11,6 +11,7 @@ var sensitivity = 0.001
 func _input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * sensitivity)
+		event.relative.x = 0
 
 
 func _physics_process(delta):
