@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dw3kq3n1a00ar"]
+[gd_scene load_steps=7 format=4 uid="uid://b88fckvqp8n00"]
 
 [ext_resource type="Script" path="res://scripts/cartridge.gd" id="1_1n2k4"]
 [ext_resource type="Texture2D" uid="uid://bpxhomjgqqsxn" path="res://models/cartridge_0.png" id="2_yal3a"]
@@ -60,7 +60,7 @@ mesh = SubResource("ArrayMesh_axmk0")
 skeleton = NodePath("")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103011, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.168623, 0)
 texture_filter = 0
 text = "Game"
 font = ExtResource("3_cyihn")

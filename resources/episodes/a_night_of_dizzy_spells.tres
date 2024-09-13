@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Episode" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/episode.gd" id="1_onmyi"]
+
+[resource]
+script = ExtResource("1_onmyi")
+available = false
+name = "A Night Of Dizzy Spells"
+cart_color = Color(1, 1, 1, 1)

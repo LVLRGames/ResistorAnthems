@@ -4,22 +4,31 @@ extends Node3D
 @onready var point_b:Marker3D = %PointB
 @onready var point_c:Marker3D = %PointC
 @onready var point_g:Marker3D = %PointG
+@onready var point_g_2:Marker3D = %PointG2
 @onready var camera:Camera3D = %Camera3D
 @onready var anim:AnimationPlayer = $CanvasLayer/Anim
 @onready var button_play:Button = %ButtonPlay
 @onready var button_options:Button = %ButtonOptions
 @onready var button_quit:Button = %ButtonQuit
 @onready var player = $Player
-@onready var gameboy:GameBoy = $Gameboy
+@onready var gameboy:GameBoy = %Gameboy
 
 var holding_game:bool = false
 var look_point:Marker3D
 var direction:Vector3 = Vector3.ZERO
 var target_direction:Vector3 = Vector3.ZERO
 var mousing:bool = false
+var cur_g_point:Marker3D:
+	get: return point_g_2 if gameboy.mode == GameBoy.Mode.SHOW_CART else point_g
+var _t:Tween
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	cur_g_point = point_g
+	#point_g_2.look_at(camera.position)
+	gameboy.cart_selected.connect(_on_cart_selected)
 	await anim.animation_finished
 	look_at_point(point_a)
 	button_play.grab_focus()
@@ -30,7 +39,14 @@ func _input(event:InputEvent):
 	mousing = event is InputEventMouseMotion && event.relative != Vector2.ZERO
 	if holding_game:
 		if event.is_action_pressed("ui_cancel"):
-			put_down_gameboy()
+			if gameboy.mode == GameBoy.Mode.SHOW_CART:
+				anim.play_backwards("episode_info_fly_in")
+				gameboy.current_cart.queue_free()
+				gameboy.mode = GameBoy.Mode.SELECT_CART
+				gameboy.show_cartridges()
+				pass
+			elif gameboy.mode == GameBoy.Mode.SELECT_CART:
+				put_down_gameboy()
 
 
 
@@ -59,44 +75,66 @@ func _process(delta):
 
 func _physics_process(delta):
 	if holding_game:
-		var target_position = point_g.global_position + Vector3(0, -0.45, 0)
-		gameboy.global_position = lerp(gameboy.global_position, target_position, delta * 3)
-		gameboy.rotation = lerp(gameboy.rotation, point_g.global_rotation, delta * 1.5)
+		var target_position = cur_g_point.global_position + Vector3(0, -0.45, 0)
+		gameboy.global_position = lerp(gameboy.global_position, target_position, delta * 10)
+		gameboy.rotation = lerp(gameboy.rotation, cur_g_point.global_rotation, delta * 10)
 	pass
 
 
 func pick_up_gameboy():
-	button_play.release_focus()
-	holding_game = true
-	await get_tree().create_timer(1).timeout
-	gameboy.show_cartridges()
+	if !holding_game:
+		button_play.release_focus()
+		gameboy.show_cartridges()
+		var rot = cur_g_point.global_rotation
+		var pos = cur_g_point.global_position + Vector3(0, -0.45, 0)
+		if _t != null: 
+			_t.kill()
+		_t = create_tween()
+		_t.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		_t.set_parallel(true)
+		_t.tween_property(gameboy,"position", pos, 0.5)
+		_t.tween_property(gameboy,"rotation", rot, 0.5)
+		#_t.set_parallel(false)
+		_t.tween_callback(
+			func():
+				holding_game = true
+		)
 
 
 func put_down_gameboy():
-	gameboy.hide_cartridges()
-	var _t = create_tween()
-	_t.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	_t.set_parallel(true)
-	_t.tween_property(gameboy,"position", gameboy.original_position, 1.5)
-	_t.tween_property(gameboy,"rotation", gameboy.original_rotation, 1.5)
-	_t.tween_callback(
-		func():
-			holding_game = false
-			button_play.grab_focus()
-			#gameboy.reparent(point_g)
-			#gameboy.global_rotation = gameboy.original_rotation
-			#gameboy.global_position = gameboy.original_position
-	)
-
+	if holding_game:
+		gameboy.hide_cartridges()
+		if _t != null: 
+			_t.kill()
+		_t = create_tween()
+		_t.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		_t.set_parallel(true)
+		_t.tween_property(gameboy,"position", gameboy.original_position, 0.75)
+		_t.tween_property(gameboy,"rotation", gameboy.original_rotation, 0.75)
+		#_t.set_parallel(false)
+		_t.tween_callback(
+			func():
+				holding_game = false
+				button_play.grab_focus()
+		)
 
 
 func look_at_point(marker:Marker3D):
 	look_point = marker
 
 
+func show_episode_info_ui():
+	anim.play("episode_info_fly_in")
+	pass
+
+
+func _on_cart_selected(index:int):
+	show_episode_info_ui()
+	pass
+
 
 # play button
-func _on_button_play_pressed():
+func _on_button_play_button_down():
 	pick_up_gameboy()
 
 func _on_button_play_focus_entered():

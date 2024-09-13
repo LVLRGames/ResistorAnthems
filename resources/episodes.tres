@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://bjksqhiohl4yo"]
+
+[ext_resource type="Script" path="res://addons/godot_resource_groups/resource_group.gd" id="1_oxdn1"]
+
+[resource]
+script = ExtResource("1_oxdn1")
+base_folder = "res://resources/episodes"
+includes = Array[String]([])
+excludes = Array[String]([])
+paths = Array[String](["res://resources/episodes/a_night_of_dizzy_spells.tres", "res://resources/episodes/all_of_us.tres", "res://resources/episodes/arpanauts.tres", "res://resources/episodes/ascending.tres", "res://resources/episodes/behind_the_waterfall_lies_the_beginning.tres", "res://resources/episodes/chibi_ninja.tres", "res://resources/episodes/come_and_find_me.tres", "res://resources/episodes/come_and_find_me_b-mix.tres", "res://resources/episodes/digital_native.tres", "res://resources/episodes/hack_havok-intro.tres", "res://resources/episodes/hack_havok-main.tres", "res://resources/episodes/jumpshot.tres", "res://resources/episodes/prologue.tres", "res://resources/episodes/searching.tres", "res://resources/episodes/there's_a_power_here.mp_3.tres", "res://resources/episodes/underclocked_(underunderclocked_mix).tres", "res://resources/episodes/we're_all_under_the_stars.tres", "res://resources/episodes/we're_the_resistors.tres"])

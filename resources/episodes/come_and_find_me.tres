@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Episode" load_steps=2 format=3 uid="uid://hqv8vbibaop5"]
+
+[ext_resource type="Script" path="res://scripts/episode.gd" id="1_afeva"]
+
+[resource]
+script = ExtResource("1_afeva")
+available = true
+name = "Come and Find Me"
+cart_color = Color(1, 1, 1, 1)
