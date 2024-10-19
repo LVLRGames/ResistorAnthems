@@ -84,6 +84,21 @@ tracks/4/keys = {
 "values": [Vector2(72, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_xmuj1"]
+resource_name = "episode_info_fly_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Control/MarginContainer/Control/ColorRect2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(72, 0), Vector2(-512, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_1o7ap"]
 resource_name = "menu_fly_in"
 length = 2.0
@@ -135,21 +150,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
 "values": [Vector2(-408, 108), Vector2(0, 108)]
-}
-
-[sub_resource type="Animation" id="Animation_xmuj1"]
-resource_name = "episode_info_fly_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Control/MarginContainer/Control/ColorRect2:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(72, 0), Vector2(-512, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hf41t"]
