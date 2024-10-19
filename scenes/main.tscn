@@ -87,7 +87,10 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_xmuj1"]
 resource_name = "episode_info_fly_in"
+<<<<<<< HEAD
 length = 0.5
+=======
+>>>>>>> 696a5c75586b111868445efcaedde83370cb40c3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -95,7 +98,11 @@ tracks/0/path = NodePath("SubViewportContainer/SubViewport/Control/MarginContain
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+<<<<<<< HEAD
 "times": PackedFloat32Array(0, 0.5),
+=======
+"times": PackedFloat32Array(0, 1),
+>>>>>>> 696a5c75586b111868445efcaedde83370cb40c3
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [Vector2(72, 0), Vector2(-512, 0)]
@@ -154,6 +161,7 @@ tracks/3/keys = {
 "values": [Vector2(-408, 108), Vector2(0, 108)]
 }
 
+<<<<<<< HEAD
 [sub_resource type="Animation" id="Animation_w2s4j"]
 resource_name = "menu_fly_in_quick"
 step = 0.1
@@ -206,6 +214,8 @@ tracks/3/keys = {
 "values": [Vector2(-408, 108), Vector2(0, 108)]
 }
 
+=======
+>>>>>>> 696a5c75586b111868445efcaedde83370cb40c3
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hf41t"]
 _data = {
 "RESET": SubResource("Animation_14egc"),
