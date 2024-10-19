@@ -10,7 +10,6 @@ enum Mode {INACTIVE, SELECT_CART, SHOW_CART}
 @onready var anim = $Anim
 @onready var carousel: Node3D = $CartCarousel
 
-var mode:Mode = Mode.INACTIVE
 var lit:bool = false
 var radius: float = 0.33  # Distance from the gameboy
 var num_items: int = 5  # Number of cartridges
@@ -22,6 +21,19 @@ var rotation_speed: float = 2.0  # Speed of carousel rotation
 var original_position:Vector3 = Vector3.ZERO
 var original_rotation:Vector3 = Vector3.ZERO
 var _t:Tween
+var mode:Mode = Mode.INACTIVE:
+	set(v):
+		print(v)
+		match v:
+			Mode.INACTIVE:
+				hide_cartridges()
+			Mode.SELECT_CART:
+				show_game_info()
+			Mode.SHOW_CART:
+				show_cartridges()
+		mode = v
+
+
 var current_cart:
 	get: 
 		if current_index < carousel_items.size():
@@ -93,8 +105,6 @@ func clear_carousel():
 
 func show_cartridges():
 	clear_carousel()
-	#if !carts_showing:
-	#await get_tree().create_timer(0.15).timeout
 	toggle_carousel(true)
 	toggle_hilight(true)
 	
@@ -111,15 +121,11 @@ func show_cartridges():
 			#position_cartridge(cartridge, i)
 	hilight_cartridge(current_index)
 	rotate_carousel(0)
-	mode = Mode.SELECT_CART
 
 
 func hide_cartridges():
 	toggle_carousel(false)
-	if mode == Mode.SELECT_CART:
-		mode = Mode.INACTIVE
-	elif mode == Mode.SHOW_CART:
-		mode = Mode.SELECT_CART
+	
 
 
 func hilight_cartridge(index:int):
@@ -156,4 +162,4 @@ func calculate_position(index: int) -> Vector3:
 
 
 func _on_cart_pressed():
-	show_game_info()
+	mode = Mode.SELECT_CART

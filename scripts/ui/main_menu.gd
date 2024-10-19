@@ -39,13 +39,11 @@ func _input(event:InputEvent):
 	mousing = event is InputEventMouseMotion && event.relative != Vector2.ZERO
 	if holding_game:
 		if event.is_action_pressed("ui_cancel"):
-			if gameboy.mode == GameBoy.Mode.SHOW_CART:
-				anim.play_backwards("episode_info_fly_in")
+			if gameboy.mode == GameBoy.Mode.SELECT_CART:
 				gameboy.current_cart.queue_free()
-				gameboy.mode = GameBoy.Mode.SELECT_CART
-				gameboy.show_cartridges()
+				gameboy.mode = GameBoy.Mode.SHOW_CART
 				pass
-			elif gameboy.mode == GameBoy.Mode.SELECT_CART:
+			elif gameboy.mode == GameBoy.Mode.SHOW_CART:
 				put_down_gameboy()
 
 
@@ -84,7 +82,10 @@ func _physics_process(delta):
 func pick_up_gameboy():
 	if !holding_game:
 		button_play.release_focus()
-		gameboy.show_cartridges()
+		gameboy.mode = GameBoy.Mode.SHOW_CART
+		anim.play_backwards("menu_fly_in_quick")
+		anim.queue("episode_info_fly_in")
+		#anim.play("episode_info_fly_in")
 		var rot = cur_g_point.global_rotation
 		var pos = cur_g_point.global_position + Vector3(0, -0.45, 0)
 		if _t != null: 
@@ -103,7 +104,10 @@ func pick_up_gameboy():
 
 func put_down_gameboy():
 	if holding_game:
-		gameboy.hide_cartridges()
+		gameboy.mode = GameBoy.Mode.INACTIVE
+		anim.play_backwards("episode_info_fly_in")
+		anim.queue("menu_fly_in_quick")
+		
 		if _t != null: 
 			_t.kill()
 		_t = create_tween()
@@ -124,7 +128,7 @@ func look_at_point(marker:Marker3D):
 
 
 func show_episode_info_ui():
-	anim.play("episode_info_fly_in")
+	
 	pass
 
 
@@ -136,6 +140,8 @@ func _on_cart_selected(index:int):
 # play button
 func _on_button_play_button_down():
 	pick_up_gameboy()
+	gameboy.mode = GameBoy.Mode.SHOW_CART
+	show_episode_info_ui()
 
 func _on_button_play_focus_entered():
 	look_at_point(point_b)
